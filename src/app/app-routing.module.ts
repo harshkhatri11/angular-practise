@@ -32,7 +32,7 @@ const routes: Routes = [
   },
 
   // when your path is empty then if you want to redirect or load any component
-  { path: '', redirectTo: 'json-server/login', pathMatch: 'full' },
+  { path: '', redirectTo: 'test/form-test', pathMatch: 'full' },
 
   //Wild Card Route for 404 request
   {
