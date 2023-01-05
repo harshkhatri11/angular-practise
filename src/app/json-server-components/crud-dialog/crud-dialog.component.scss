@@ -1,0 +1,22 @@
+mat-form-field {
+  width: 100%;
+}
+
+.product-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+  align-items: flex-start;
+}
+
+.product-radio-button {
+  margin: 5px;
+}
+
+.action-btn {
+  width: 7vw;
+  margin-right: 0.5vw;
+  &:last-child {
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,13 @@
+::ng-deep .text-highlight {
+  background: yellow;
+}
+
+//when this component is active and user hover over the header then prevent the overlap of  mat-tab things with header.
+// ::ng-deep mat-tab-body {
+//   z-index: -1 !important;
+// }
+
+// ::ng-deep .mat-tab-label-container {
+//   z-index: -1 !important;
+// }
+//////////////////////////////////////////////////////////////////

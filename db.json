@@ -1,0 +1,30 @@
+{
+  "signupUsers": [
+    {
+      "fullName": "Harsh Khatri",
+      "mobileNo": 9638038362,
+      "email": "harshkhatri62@gmail.com",
+      "password": "Khatri@123",
+      "id": 1
+    },
+    {
+      "fullName": "Mansi",
+      "mobileNo": 6354925458,
+      "email": "mansikkhatri8@gmail.com",
+      "password": "Khatri@123",
+      "id": 2
+    }
+  ],
+  "employeeDetails": [],
+  "productList": [
+    {
+      "productName": "Apple",
+      "category": "Phone",
+      "date": "2022-08-01T18:30:00.000Z",
+      "freshness": "Second Hand",
+      "price": 35000,
+      "comment": "used phone",
+      "id": 1
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+<div class="header">
+  <div class="top-bar">
+    <div class="today-date">{{ today }}</div>
+
+    <div class="d-flex temp-lang-conatiner">
+      <div class="current-temp" *ngIf="prompt">
+        {{ currentTemp }}<sup>°</sup>&nbsp;C &nbsp;
+        <mat-icon>location_on</mat-icon>
+        {{ cityName }},&nbsp;{{ stateName }},&nbsp;{{ countryName }}
+      </div>
+      <div
+        *ngIf="socialAuthService.authState | async as socialUser"
+        class="d-flex"
+      >
+        <p>Hello, {{ socialUser.name }}!</p>
+        <!-- <p>Your email: {{ socialUser.email }}</p> -->
+        <mat-icon (click)="logout()" class="mx-3">logout</mat-icon>
+      </div>
+      <asl-google-signin-button type="standard" size="large">
+        <button class="google-login-btn" (click)="loginWithGoogle()">
+          <img src="../../../assets/image/icons8-google.svg" class="mx-2" />
+          Login
+        </button>
+      </asl-google-signin-button>
+
+      <div class="lan-selection">
+        <form class="form-inline">
+          <mat-icon>g_translate</mat-icon>
+          <select
+            class="language-select"
+            name="langChange"
+            (ngModelChange)="languageChange($event)"
+            [(ngModel)]="languageCode"
+          >
+            <option
+              class="language-select"
+              *ngFor="let item of languages"
+              [value]="item.languageCode"
+            >
+              {{ item.languageName }}
+            </option>
+          </select>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="hover-popup-menu">
+    <ul class="nav_section">
+      <li class="section_hover">
+        <p class="header_bottom_margin" id="grp1" class="header_title">
+          Test Components
+        </p>
+        <div class="grp1_hoverdiv">
+          <div class="grp1_div">
+            <div class="row">
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="sub-section-hover">
+                  <a class="hover_header" routerLink="test/chart-test">Chart</a>
+                  <div class="hover_detail grp1-section">
+                    Selector : "app-chart-template-test"
+                  </div>
+                </div>
+
+                <div class="sub-section-hover">
+                  <a class="hover_header" routerLink="test/datasharing-test"
+                    >Data Sharing</a
+                  >
+                  <div class="hover_detail grp1-section">
+                    Selector : "app-datasharing-template-test"
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="grp1_div_margin">
+                  <div class="sub-section-hover">
+                    <a class="hover_header" routerLink="test/dashboard-test"
+                      >Dashboard</a
+                    >
+                    <div class="hover_detail grp1-section">
+                      Selector : "app-dashboard-template-test"
+                    </div>
+                  </div>
+                  <div class="sub-section-hover">
+                    <a class="hover_header" routerLink="test/directives"
+                      >Directives Examples</a
+                    >
+                    <div class="hover_detail grp1-section">
+                      Selector : "app-directives-example"
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="grp1_div_margin">
+                  <div class="sub-section-hover">
+                    <a href="#" class="hover_header" routerLink="test/form-test"
+                      >Form</a
+                    >
+                    <div class="hover_detail grp1-section">
+                      Selector : "app-form-template-test"
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3">
+                <div class="grp1_div_margin">
+                  <div class="sub-section-hover">
+                    <a
+                      href="#"
+                      class="hover_header"
+                      routerLink="test/table-test"
+                      >Table</a
+                    >
+                    <div class="hover_detail grp1-section">
+                      Selector : "app-table-template-test"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="section_hover">
+        <p class="header_bottom_margin" id="grp2" class="header_title">
+          Json Server
+        </p>
+        <div class="grp2_hoverdiv">
+          <div class="json-server-info">
+            To use Json-server services : json-server --watch db.json
+          </div>
+          <div class="grp2_div">
+            <div class="row">
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="sub-section-hover">
+                  <a routerLink="json-server/login" class="hover_header"
+                    >Login</a
+                  >
+                  <div class="hover_detail grp2-section">
+                    Login / Sign up using Json Server.
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="grp2_div_margin">
+                  <div class="sub-section-hover">
+                    <a routerLink="json-server/crud" class="hover_header"
+                      >CRUD Operation</a
+                    >
+                    <div class="hover_detail grp2-section">
+                      CRUD Operation in table
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="grp2_div_margin">
+                  <div class="sub-section-hover">
+                    <a href="#" class="hover_header">Hello World</a>
+                    <div class="hover_detail grp2-section">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Quidem beatae, sunt reprehenderit vero minima debitis
+                      labore
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3">
+                <div class="grp2_div_margin">
+                  <div class="sub-section-hover">
+                    <a href="#" class="hover_header">Hello World</a>
+                    <div class="hover_detail grp2-section">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+
+      <li class="section_hover">
+        <p class="header_bottom_margin" id="grp3" class="header_title">
+          Applications
+        </p>
+        <div class="grp3_hoverdiv">
+          <div class="grp3_div">
+            <div class="row">
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="sub-section-hover">
+                  <a routerLink="applications/todo-list" class="hover_header"
+                    >To Do List</a
+                  >
+                  <div class="hover_detail grp3-section">
+                    Manage your daily task
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="grp3_div_margin">
+                  <div class="sub-section-hover">
+                    <a href="#" class="hover_header">Hello World</a>
+                    <div class="hover_detail grp3-section">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Quidem beatae, sunt reprehenderit vero minima debitis
+                      labore
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3 border_right">
+                <div class="grp3_div_margin">
+                  <div class="sub-section-hover">
+                    <a href="#" class="hover_header">Hello World</a>
+                    <div class="hover_detail grp3-section">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                      Quidem beatae, sunt reprehenderit vero minima debitis
+                      labore
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 com-md-3 col-sm-3">
+                <div class="grp3_div_margin">
+                  <div class="sub-section-hover">
+                    <a href="#" class="hover_header">Hello World</a>
+                    <div class="hover_detail grp3-section">
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="sidemenu">
+    <div
+      id="mySidenav"
+      class="sidenav"
+      [ngClass]="hamburgerOpen ? 'open-hamburger' : 'close-hamburger'"
+    >
+      <a href="javascript:void(0)" id="close-hamburger">
+        <mat-icon class="closebtn" (click)="hamburgerOpen = !hamburgerOpen"
+          >close</mat-icon
+        >
+      </a>
+
+      <div id="hamburger-accordion">
+        <mat-expansion-panel [expanded]="step === 0" (opened)="setState(0)">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="header-title"
+              >Test Components
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <a class="dropdown-item" routerLink="test/chart-test">Chart</a>
+          <a class="dropdown-item" routerLink="test/datasharing-test"
+            >Data Sharing</a
+          >
+          <a class="dropdown-item" routerLink="test/dashboard-test"
+            >Dashboard</a
+          >
+          <a class="dropdown-item" routerLink="test/form-test">Form</a>
+          <a class="dropdown-item" routerLink="test/table-test">Table</a>
+          <a class="dropdown-item" routerLink="test/directives"
+            >Directives Examples</a
+          >
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 1" (opened)="setState(1)">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="header-title">
+              Json Server
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <a class="dropdown-item" routerLink="json-server/login">Login</a>
+          <a class="dropdown-item" routerLink="json-server/crud"
+            >CRUD Operation</a
+          >
+        </mat-expansion-panel>
+
+        <mat-expansion-panel [expanded]="step === 2" (opened)="setState(2)">
+          <mat-expansion-panel-header>
+            <mat-panel-title class="header-title">
+              Applications
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <a class="dropdown-item" routerLink="applications/todo-list"
+            >To Do List</a
+          >
+        </mat-expansion-panel>
+      </div>
+    </div>
+
+    <span class="open-hamburger" (click)="hamburgerOpen = !hamburgerOpen"
+      ><mat-icon class="hamburger-white">menu</mat-icon></span
+    >
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<!--Liner Progress bar-->
+
+<div *ngIf="isLoading | async" class="overlay">
+  <mat-progress-bar mode="indeterminate"> </mat-progress-bar>
+</div>
+
+<!--Spinner Progress -->
+
+<!-- <div *ngIf="isLoading | async" class="overlay">
+  <mat-progress-spinner class="spinner" mode="indeterminate">
+  </mat-progress-spinner>
+</div> -->
+
+<!--Reference from : https://indepth.dev/tutorials/angular/how-to-implement-global-loaders-using-http-interceptors-->

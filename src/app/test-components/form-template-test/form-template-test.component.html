@@ -1,0 +1,541 @@
+<!---add/remove 'linear' word before #stepper to see stepper liner or non liner --->
+
+<mat-stepper linear #stepper [orientation]="(stepperOrientation | async)!">
+  <mat-step [stepControl]="userBasicDetails">
+    <form [formGroup]="userBasicDetails">
+      <ng-template matStepLabel>Basic Details</ng-template>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="user-name-div">
+            <div class="form-group">
+              <label for="firstNameInput">First Name </label>
+              <sup class="text-danger">*</sup>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="firstName"
+                id="firstNameInput"
+                placeholder=""
+                [ngClass]="{
+                  'red-class':
+                    userBasicDetails.controls['firstName'].invalid &&
+                    userBasicDetails.controls['firstName'].touched
+                }"
+              />
+
+              <!-- <mat-error
+                *ngIf="
+                  userBasicDetails.controls['firstName'].hasError('required') &&
+                  userBasicDetails.controls['firstName'].touched
+                "
+                >First Name is required</mat-error
+              > -->
+              <mat-error
+                *ngIf="
+                  userBasicDetails.controls['firstName'].hasError('pattern') &&
+                  userBasicDetails.controls['firstName'].touched
+                "
+                >Only alphabets are allowed</mat-error
+              >
+              <!--need to check this fun-->
+              <!-- <mat-error
+                            *ngIf="
+                            userBasicDetails?.controls?.firstName?.touched && 
+                            userBasicDetails?.controls?.firstName?.errors?.required
+                            >First Name isrequired</mat-error
+                        </mat-error> -->
+            </div>
+
+            <div class="form-group">
+              <label for="middleNameInput">Middle Name (Optional)</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="middleName"
+                id="middleNameInput"
+                placeholder=""
+              />
+              <mat-error
+                *ngIf="
+                  userBasicDetails.controls['middleName'].hasError('pattern') &&
+                  userBasicDetails.controls['middleName'].touched
+                "
+                >Only alphabets are allowed</mat-error
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="lastNameInput">Last Name </label>
+              <sup class="text-danger">*</sup>
+
+              <input
+                type="text"
+                class="form-control"
+                formControlName="lastName"
+                id="lastNameInput"
+                placeholder=""
+                [ngClass]="{
+                  'red-class':
+                    userBasicDetails.controls['lastName'].invalid &&
+                    userBasicDetails.controls['lastName'].touched
+                }"
+              />
+              <mat-error
+                *ngIf="
+                  userBasicDetails.controls['lastName'].hasError('pattern') &&
+                  userBasicDetails.controls['lastName'].touched
+                "
+              >
+                Only alphabets are allowed</mat-error
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="inputEmail">Email address</label>
+            <sup class="text-danger">*</sup>
+            <input
+              type="email"
+              class="form-control w-75"
+              id="inputEmail"
+              formControlName="email"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
+              [ngClass]="{
+                'red-class':
+                  userBasicDetails.controls['email'].invalid &&
+                  userBasicDetails.controls['email'].touched
+              }"
+            />
+            <small id="emailHelp" class="form-text text-muted">
+              We'll never share your email with anyone else.
+            </small>
+          </div>
+          <mat-error
+            *ngIf="
+              userBasicDetails.controls['email'].hasError('email') &&
+              userBasicDetails.controls['email'].hasError('required')
+            "
+          >
+            Please enter a valid email address
+          </mat-error>
+
+          <div class="my-3 d-flex">
+            <label id="example-radio-group-label"
+              >Gender <sup class="text-danger">*</sup> &nbsp;</label
+            >
+            <mat-radio-group
+              aria-labelledby="example-radio-group-label"
+              class="example-radio-group"
+              formControlName="gender"
+            >
+              <mat-radio-button
+                class="example-radio-button"
+                *ngFor="let gender of genders"
+                [value]="gender"
+                >{{ gender }}&nbsp;</mat-radio-button
+              >
+            </mat-radio-group>
+          </div>
+
+          <div class="my-3 d-flex">
+            <div class="form-group">
+              <label for="inputMobile">Enter your Phone number</label>
+              <sup class="text-danger">*</sup>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="mobile"
+                id="inputMobile"
+                placeholder=""
+                maxlength="10"
+                [ngClass]="{
+                  'red-class':
+                    userBasicDetails.controls['mobile'].invalid &&
+                    userBasicDetails.controls['mobile'].touched
+                }"
+              />
+              <mat-error
+                *ngIf="
+                  userBasicDetails.controls['mobile'].hasError('pattern') &&
+                  userBasicDetails.controls['mobile'].touched
+                "
+                >Phone number shouldn't be less than 10
+              </mat-error>
+            </div>
+
+            <div class="form-group">
+              <label for="inputlandline">Landline number (Optional)</label>
+
+              <input
+                type="number"
+                class="form-control"
+                formControlName="landLine"
+                id="inputlandline"
+                placeholder=""
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="inputZipcode">Pincode / Zip Code</label>
+              <sup class="text-danger">*</sup>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="pincode"
+                id="inputZipcode"
+                placeholder=""
+                [ngClass]="{
+                  'red-class':
+                    userBasicDetails.controls['pincode'].invalid &&
+                    userBasicDetails.controls['pincode'].touched
+                }"
+              />
+            </div>
+          </div>
+
+          <div class="d-flex">
+            <div class="form-group">
+              <label for="inputHouseno">House no / Flat no</label>
+              <sup class="text-danger">*</sup>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="homeNo"
+                id="inputHouseno"
+                placeholder=""
+                [ngClass]="{
+                  'red-class':
+                    userBasicDetails.controls['homeNo'].invalid &&
+                    userBasicDetails.controls['homeNo'].touched
+                }"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="inputStreetname">Street name</label>
+              <sup class="text-danger">*</sup>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="streetName"
+                id="inputStreetname"
+                placeholder=""
+                [ngClass]="{
+                  'red-class':
+                    userBasicDetails.controls['streetName'].invalid &&
+                    userBasicDetails.controls['streetName'].touched
+                }"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="inputLandmark">Landmark (Optional)</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="landmark"
+                id="inputLandmark"
+                placeholder=""
+              />
+            </div>
+          </div>
+
+          <div class="d-flex my-3">
+            <div class="form-group w-50">
+              <label>State</label>
+              <sup class="text-danger">*</sup>
+              <ng-select
+                [items]="states"
+                bindLabel="name"
+                placeholder="Select a State"
+                formControlName="stateName"
+                [(ngModel)]="selectedState"
+              >
+              </ng-select>
+            </div>
+
+            <div class="form-group w-50">
+              <label>City</label>
+              <sup class="text-danger">*</sup>
+              <ng-select
+                [items]="city"
+                bindLabel="name"
+                placeholder="Select a City"
+                formControlName="cityName"
+                [(ngModel)]="selectedCity"
+              >
+              </ng-select>
+            </div>
+          </div>
+          <div>
+            <button
+              matStepperNext
+              mat-flat-button
+              color="primary"
+              [disabled]="userBasicDetails.invalid"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <div class="image-container">
+            <img src="../../../assets/illustration/user_profile.svg" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step [stepControl]="userBankDetails">
+    <form [formGroup]="userBankDetails">
+      <ng-template matStepLabel>Fill Your Bank Details</ng-template>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label>Bank Name</label>
+            <sup class="text-danger">*</sup>
+            <ng-select
+              [items]="bankList"
+              bindLabel="name"
+              placeholder="Select a Bank"
+              formControlName="bankname"
+              [(ngModel)]="selectedBank"
+            >
+            </ng-select>
+          </div>
+
+          <div class="form-group my-3">
+            <label for="accNoInput">Account Number</label>
+            <sup class="text-danger">*</sup>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="accNo"
+              id="accNoInput"
+              placeholder=""
+              (ngModelChange)="validateAccountNo($event)"
+            />
+          </div>
+
+          <div class="form-group my-3">
+            <label for="reconfirmaccNoInput">Reconfirm Account Number</label>
+            <sup class="text-danger">*</sup>
+            <input
+              type="number"
+              class="form-control"
+              formControlName="reconfirmaccNo"
+              id="reconfirmaccNoInput"
+              placeholder=""
+              onpaste="return false"
+              ondrop="return false"
+              autocomplete="off"
+              (ngModelChange)="validateAccountNo($event)"
+            />
+            <small class="form-text text-muted"
+              >Copying is not allowed. You will need to type to reconfirm</small
+            ><br />
+            <mat-error
+              *ngIf="
+                !isAccNumberValid &&
+                userBankDetails.controls['reconfirmaccNo'].touched
+              "
+              >Account number is not matched</mat-error
+            >
+          </div>
+
+          <div class="form-group my-3">
+            <label for="ifscCodeInput">IFSC Code</label>
+            <sup class="text-danger">*</sup>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="ifscNo"
+              id="ifscCodeInput"
+              placeholder=""
+            />
+          </div>
+          <div>
+            <button matStepperPrevious mat-stroked-button>Back</button>
+            <button
+              matStepperNext
+              mat-flat-button
+              color="primary"
+              class="mx-3"
+              [disabled]="userBankDetails.invalid || !isAccNumberValid"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+          <div class="image-container">
+            <img src="../../../assets/illustration/bank_details.svg" />
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="userProfileDetails">
+    <form [formGroup]="userProfileDetails">
+      <ng-template matStepLabel>Create your profile</ng-template>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group w-50">
+            <label for="usernameInput">create your Username</label>
+            <sup class="text-danger">*</sup>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              id="usernameInput"
+              placeholder=""
+            />
+            <small class="form-text text-muted">
+              It can be any combination of alphanumberic letters and digits </small
+            ><br />
+          </div>
+
+          <div class="form-group my-3 w-50">
+            <label for="passwordInput">Create your Password</label>
+            <sup class="text-danger">*</sup>
+            <div class="input-group">
+              <input
+                [type]="passVisbility ? 'text' : 'Password'"
+                class="form-control"
+                formControlName="password"
+                id="passwordInput"
+                (ngModelChange)="
+                  passPolicyChecker($event); validatepassword($event)
+                "
+              />
+              <div class="input-group-append">
+                <span
+                  class="input-group-text"
+                  (click)="passVisbility = !passVisbility"
+                  ><mat-icon>{{
+                    passVisbility ? "visibility" : "visibility_off"
+                  }}</mat-icon>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group my-3 w-50">
+            <label for="confirmPassInput">Confirm your Password</label>
+            <sup class="text-danger">*</sup>
+            <div class="input-group">
+              <input
+                [type]="passConfirmVisbility ? 'text' : 'Password'"
+                class="form-control"
+                formControlName="confirmpassword"
+                id="confirmPassInput"
+                onpaste="return false"
+                ondrop="return false"
+                autocomplete="off"
+                (ngModelChange)="validatepassword($event)"
+              />
+              <div class="input-group-append">
+                <span
+                  class="input-group-text"
+                  (click)="passConfirmVisbility = !passConfirmVisbility"
+                  ><mat-icon>{{
+                    passConfirmVisbility ? "visibility" : "visibility_off"
+                  }}</mat-icon>
+                </span>
+              </div>
+            </div>
+            <mat-error
+              *ngIf="
+                !isPasswordMatch &&
+                userProfileDetails.controls['confirmpassword'].touched
+              "
+              >Your Password is not matched
+            </mat-error>
+          </div>
+
+          <div>
+            <button matStepperPrevious mat-stroked-button>Back</button>
+            <button
+              mat-stroked-button
+              class="mx-3"
+              (click)="stepper.reset(); resetPassPolicystate()"
+            >
+              Reset
+            </button>
+            <button
+              matStepperNext
+              mat-flat-button
+              color="primary"
+              [disabled]="
+                userProfileDetails.invalid ||
+                !isPasswordMatch ||
+                !isPassPolicyCheck
+              "
+              (click)="sendUserData()"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div
+            class="password-policy w-75 mt-5 shadow p-4 mb-4 bg-white"
+            [ngClass]="isPassPolicyCheck ? 'success' : 'fail'"
+          >
+            <h3>Password Policy</h3>
+            <ul class="pass-policy-list">
+              <li>
+                <mat-icon
+                  [ngStyle]="isLower ? { color: 'green' } : { color: 'red' }"
+                  class="me-2"
+                  >{{ isLower ? "done" : "close" }}</mat-icon
+                >Atleast one lowercase (a-z).
+              </li>
+
+              <li>
+                <mat-icon
+                  [ngStyle]="isUpper ? { color: 'green' } : { color: 'red' }"
+                  class="me-2"
+                  >{{ isUpper ? "done" : "close" }}</mat-icon
+                >Atleast one uppercase (A-Z).
+              </li>
+
+              <li>
+                <mat-icon
+                  [ngStyle]="isDigit ? { color: 'green' } : { color: 'red' }"
+                  class="me-2"
+                  >{{ isDigit ? "done" : "close" }}</mat-icon
+                >Atleast one number (0-9).
+              </li>
+
+              <li>
+                <mat-icon
+                  [ngStyle]="
+                    isSpecialChar ? { color: 'green' } : { color: 'red' }
+                  "
+                  class="me-2"
+                  >{{ isSpecialChar ? "done" : "close" }}</mat-icon
+                >Atleast one special character @$!%^
+              </li>
+
+              <li>
+                <mat-icon
+                  [ngStyle]="
+                    isMinlength ? { color: 'green' } : { color: 'red' }
+                  "
+                  class="me-2"
+                  >{{ isMinlength ? "done" : "close" }}</mat-icon
+                >Should be minimum 8 characters.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </form>
+  </mat-step>
+</mat-stepper>

@@ -1,0 +1,69 @@
+<div>
+  <div class="chart-component-heading">
+    <h2>Chart Js Example [ "ng2-charts": "^3.1.2","chart.js": "^3.8.2"]</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-5 col-12">
+      <div class="d-flex justify-content-center align-items-center flex-column">
+        <div class="form-group w-50">
+          <label class="mb-2">Chart Type </label>
+          <ng-select
+            [items]="charts_type"
+            bindLabel="name"
+            placeholder="Select a Chart Type"
+            [(ngModel)]="selectedChart"
+            (ngModelChange)="charType($event)"
+          >
+          </ng-select>
+        </div>
+
+        <div class="my-3">
+          Data Label &nbsp;
+          <!-- <mat-slide-toggle
+            color="primary"
+            [(ngModel)]="isdataLabel"
+            (toggleChange)="onDataLableChange()"
+          ></mat-slide-toggle> -->
+          <mat-checkbox
+            color="primary"
+            [checked]="isdataLabel"
+            (change)="onDataLableChange()"
+          ></mat-checkbox>
+        </div>
+
+        <!--there are two way to export chart -->
+
+        <!--first method which we are using here-->
+        <div class="d-flex">
+          Download Chart &nbsp;<mat-icon
+            (click)="downloadChart()"
+            matTooltip="Download as PNG"
+            color="primary"
+            >download</mat-icon
+          >
+        </div>
+
+        <!--second method if you want to try !!!-->
+        <!-- <a href="#" (click)="downloadCanvas($event)"> DOWNLOAD THIS</a> -->
+      </div>
+    </div>
+    <div class="col-md-7 col-12">
+      <div class="chart-title">
+        Sales / Year ( {{ chart_type | titlecase }} Chart )
+      </div>
+
+      <div class="chart-container">
+        <canvas
+          baseChart
+          id="chart"
+          [data]="barChartData"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="chart_legend"
+          [type]="chart_type"
+        >
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+//For mat table if you want to apply style to particular column writte  .mat-column-{columnDef name}
+.mat-column-name {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.mat-column-id {
+  border-right: 1px dotted var(--black-color);
+}

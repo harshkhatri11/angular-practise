@@ -1,0 +1,157 @@
+/* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-color: #f18f20;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --red-gradient: #e52b26;
+  --black-shadow: #00000028;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//:::::::::::::::::::::::To apply style for ng select apply only one theme either default/material::::::://
+@import "~@ng-select/ng-select/themes/default.theme.css";
+//@import "~@ng-select/ng-select/themes/material.theme.css";
+//::::::::::::::::::::::To apply bootstrap theme:::::::::::::::::://
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../node_modules/font-awesome/css/font-awesome.min.css";
+
+//:::::::::::::::::::To apply conditional style to snackbar ::::::::::::://
+.green-snackbar {
+  background: green !important;
+  color: white !important;
+}
+.green-snackbar button {
+  color: white !important;
+}
+.red-snackbar {
+  background: #f44336 !important;
+  color: white !important;
+}
+.red-snackbar button {
+  color: white !important;
+}
+
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
+
+//primary button style
+.white-bg-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: 0 0.5rem;
+  width: 9vw;
+  height: 2.5vw;
+  border-radius: 1.25vw;
+  text-align: center;
+  font-size: 0.94vw;
+  letter-spacing: 0.005vw;
+  color: var(--primary-color);
+  background: var(--white-color) 0% 0% no-repeat padding-box;
+  border: 0.052vw solid var(--primary-color);
+  transition: 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent
+      linear-gradient(269deg, var(--primary-color) 0%, var(--red-gradient) 100%)
+      0% 0% no-repeat;
+    box-shadow: 0vw 0.313vw 0.521vw var(--black-shadow);
+    color: var(--white-color);
+    border: 0;
+  }
+}
+
+.orange-bg-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  //padding: 0 0.5rem;
+  width: 9vw;
+  height: 2.5vw;
+  border-radius: 1.25vw;
+  text-align: center;
+  font-size: 0.94vw;
+  letter-spacing: 0.005vw;
+  color: var(--white-color);
+  background: var(--primary-color) 0% 0% no-repeat padding-box;
+  border: 0.052vw solid var(--primary-color);
+  transition: 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent
+      linear-gradient(270deg, var(--primary-color) 0%, var(--red-gradient) 100%)
+      0% 0% no-repeat;
+    box-shadow: 0vw 0.313vw 0.521vw var(--black-shadow);
+    border: 0;
+  }
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+
+//:::::::::::::To give the style to mat-tooltip::::::::::::::::::::://
+.mat-tooltip {
+  background-color: var(--white-color) !important;
+  color: var(--primary-color) !important;
+  font-size: 12px !important;
+  white-space: pre-line !important;
+  border: 1px solid var(--primary-color) !important;
+}
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
+
+//:::::::::::::::::::to customize sildebar::::::::::::::::::::::::::::::::::://
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--white-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--primary-color);
+  border-radius: 24px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::://
+
+@media only screen and (max-width: 600px) {
+  .orange-bg-btn,
+  .white-bg-btn {
+    height: 9vw;
+    width: 35vw;
+    font-size: 2.899vw;
+    letter-spacing: 0.014vw;
+    border-radius: 5.797vw;
+
+    &:hover {
+      box-shadow: 0 1.449vw 2.415vw var(--black-color);
+    }
+  }
+}

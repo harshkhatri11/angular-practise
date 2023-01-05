@@ -1,0 +1,27 @@
+<h2>Highlight Directive</h2>
+<div class="my-3">
+  <mat-form-field>
+    <input
+      type="text"
+      [(ngModel)]="query_conversation"
+      matInput
+      placeholder="Search..."
+      autofocus
+    />
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <mat-checkbox
+    class="mx-3"
+    [checked]="iscaseSensitive"
+    (change)="onCaseSensitive()"
+    color="primary"
+    >Case Sensitive Search</mat-checkbox
+  >
+
+  <p
+    appHighlight
+    [content]="content"
+    [searchTerm]="query_conversation"
+    [caseSensitive]="iscaseSensitive"
+  ></p>
+</div>

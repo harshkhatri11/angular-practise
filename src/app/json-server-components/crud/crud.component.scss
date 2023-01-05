@@ -1,0 +1,21 @@
+.emp-add-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  width: 7vw;
+  margin-right: 0.5vw;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

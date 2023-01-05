@@ -1,0 +1,94 @@
+<div class="text-center">
+  <form [formGroup]="todoForm">
+    <mat-form-field appearance="outline" class="w-25">
+      <mat-label>Create your task</mat-label>
+      <input
+        matInput
+        placeholder=""
+        autocomplete="off"
+        formControlName="taskname"
+      />
+    </mat-form-field>
+    <button (click)="task()" class="white-bg-btn">
+      <mat-icon>{{ editMode ? "update" : "add_task" }}</mat-icon
+      >{{ editMode ? "Update" : "Add" }}
+    </button>
+  </form>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+  <div cdkDropListGroup>
+    <div class="task-container">
+      <div class="d-flex align-items-center justify-content-around">
+        <h2>To do</h2>
+        <div class="search">
+          <mat-form-field>
+            <mat-label>search in To do</mat-label>
+            <input type="text" matInput [(ngModel)]="searchTextInTodo" />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+      <div
+        cdkDropList
+        [cdkDropListData]="todo"
+        class="task-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="task-box"
+          *ngFor="let item of todo | appFilter: searchTextInTodo; let i = index"
+          cdkDrag
+        >
+          {{ item }}
+          <div class="action-btn">
+            <button>
+              <mat-icon (click)="deleteTask(i)" color="warn">delete</mat-icon>
+            </button>
+            <button class="mx-3">
+              <mat-icon (click)="editTask(i, item)" color="primary"
+                >edit</mat-icon
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="task-container">
+      <div class="d-flex align-items-center justify-content-around">
+        <h2>Done</h2>
+        <div class="search">
+          <mat-form-field>
+            <mat-label>search in Done</mat-label>
+            <input type="text" matInput [(ngModel)]="searchTextInDone" />
+            <mat-icon matSuffix>search</mat-icon>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div
+        cdkDropList
+        [cdkDropListData]="done"
+        class="task-list"
+        (cdkDropListDropped)="drop($event)"
+      >
+        <div
+          class="task-box"
+          *ngFor="let item of done | appFilter: searchTextInDone; let i = index"
+          cdkDrag
+        >
+          {{ item }}
+          <div class="action-btn">
+            <mat-icon style="color: #22bb33">check_circle</mat-icon>
+            <button class="mx-3">
+              <mat-icon (click)="deleteDoneTask(i)" color="warn"
+                >delete</mat-icon
+              >
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

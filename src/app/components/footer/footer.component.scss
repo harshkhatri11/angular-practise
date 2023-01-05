@@ -1,0 +1,47 @@
+.social-icon {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  padding: 0.5rem;
+
+  i {
+    color: var(--white-color);
+    width: 1vw;
+    text-align: center;
+  }
+}
+
+.section-title {
+  font-size: 1rem;
+
+  &::after {
+    display: block;
+    content: "";
+    border-bottom: solid 3px var(--primary-color);
+    width: 10vw;
+    padding-top: 0.5vw;
+  }
+}
+
+.social-media-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+
+  a {
+    text-decoration: none;
+  }
+}

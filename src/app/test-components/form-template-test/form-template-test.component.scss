@@ -1,0 +1,73 @@
+.user-name-div {
+  display: flex;
+  //justify-content: space-between;
+  margin: 1rem 0;
+}
+
+.form-group {
+  margin-right: 0.5vw;
+}
+
+.form-control {
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+.image-container {
+  img {
+    width: 38vw;
+  }
+}
+
+.success {
+  border: 1px solid green;
+}
+
+.fail {
+  border: 1px solid red;
+}
+
+.password-policy {
+  //border: 1px solid #b2b2b2;
+  border-radius: 1.2rem;
+  padding: 2rem;
+
+  .pass-policy-list {
+    list-style: none;
+    padding-left: 0 !important;
+
+    li {
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+//::::::To remove increment/decrement sign in type number input box::::::::::::::::::::::::::::::://
+
+/* Chrome, Safari, Edge, Opera */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+
+  margin: 0;
+}
+
+/* Firefox */
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+//::::::::::To Provide custom style to snack bar ::::::::::::::::::::::::::::://
+
+::ng-deep .mat-snack-bar-container {
+  color: white;
+  background: green;
+}
+
+.red-class {
+  border: 1px solid red;
+}

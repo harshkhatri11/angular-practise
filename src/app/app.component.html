@@ -1,0 +1,36 @@
+<!-- <div class="top-bar">
+  <div>{{ today }}</div>
+  <div class="lan-selection">
+    <form class="form-inline">
+      <mat-icon>g_translate</mat-icon>
+      <select
+        class="language-select"
+        name="langChange"
+        (ngModelChange)="languageChange($event)"
+        [(ngModel)]="languageCode"
+      >
+        <option
+          class="language-select"
+          *ngFor="let item of languages"
+          [value]="item.languageCode"
+        >
+          {{ item.languageName }}
+        </option>
+      </select>
+    </form>
+  </div>
+</div> -->
+<app-loader></app-loader>
+<div>
+  <div class="fixed-header">
+    <app-header class="fixed-header"></app-header>
+  </div>
+  <div class="main-content">
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  <div>
+    <app-footer></app-footer>
+  </div>
+</div>

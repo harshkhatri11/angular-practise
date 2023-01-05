@@ -1,0 +1,9 @@
+
+//Google sign keys :(https://medium.com/@danilrabizo/google-authentication-in-the-angular-application-e86df69be58a)
+1)Client id : 413123742762-pol2mnd2on3kb1svg9taqddimn3ub8n8.apps.googleusercontent.com
+2)Your Client Secret : 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
+
+
+npm install -g json-server
+npm install chartjs-plugin-zoom
+Install the Angular Social Login dependency : npm i @abacritt/angularx-social-login

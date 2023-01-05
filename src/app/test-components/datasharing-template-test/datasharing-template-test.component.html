@@ -1,0 +1,9 @@
+<h2>parents component</h2>
+<div>
+  <app-child
+    [hero]="data"
+    (parentFunction)="parentFunction($event)"
+  ></app-child>
+  <br /><br />
+  <h1>{{ nameFromChild | uppercase }}</h1>
+</div>
