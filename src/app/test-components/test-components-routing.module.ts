@@ -9,20 +9,21 @@ import { FormTemplateTestComponent } from './form-template-test/form-template-te
 import { TableTemplateTestComponent } from './table-template-test/table-template-test.component';
 
 const routes: Routes = [
-  { path: 'chart-test', component: ChartTemplateTestComponent },
+  { path: 'chart-test', component: ChartTemplateTestComponent, title: 'Chart' },
   {
     path: 'dashboard-test',
     component: DashboardTemplateTestComponent,
     canActivate: [AuthGuardGuard],
+    title: 'Dashboard'
   },
-  { path: 'datasharing-test', component: DatasharingTemplateTestComponent },
-  { path: 'form-test', component: FormTemplateTestComponent },
-  { path: 'table-test', component: TableTemplateTestComponent },
-  { path: 'directives', component: DirectivesExampleComponent },
+  { path: 'datasharing-test', component: DatasharingTemplateTestComponent ,title: 'Data Sharing' },
+  { path: 'form-test', component: FormTemplateTestComponent,title: 'Form' },
+  { path: 'table-test', component: TableTemplateTestComponent,title: 'Table' },
+  { path: 'directives', component: DirectivesExampleComponent,title:'Directives' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TestComponentsRoutingModule {}
+export class TestComponentsRoutingModule { }
