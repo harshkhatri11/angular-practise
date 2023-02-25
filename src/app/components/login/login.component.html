@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+  </head>
+  <body>
+    <div class="login-page">
+      <!-- <div class="avatar">
+        <img src="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_960_720.png" alt="Avatar">
+      </div> -->
+      <div class="form">
+        <h2>Login</h2>
+        <form [formGroup]="loginForm">
+          <input type="text" placeholder="Email" required formControlName="email" >
+          <input type="password" placeholder="Password" required formControlName="password">
+          <button (click)="login()" [disabled]="!(loginForm.valid && loginForm.dirty)" mat-raised-button color="primary">Log in</button>
+
+            <!-- <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Email</mat-label>
+                <input matInput formControlName="email" required>
+                <mat-error
+                *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+                <span *ngIf="loginForm.controls.email.errors.required">This field is
+                    manadatory</span>
+                <span *ngIf="loginForm.controls.email.errors.email">This email is not valid</span>
+            </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" required>
+                <mat-error
+                    *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                    <span *ngIf="loginForm.controls.password.errors.required">This field is
+                        manadatory</span>
+                </mat-error>
+            </mat-form-field>
+
+            <button>Log in</button> -->
+        </form>
+        <p class="message">Not registered? <a routerLink="/signup">Create an account</a></p>
+        <!-- <p class="message">Forgot your password? <a href="#">Click here to reset it</a></p> -->
+      </div>
+    </div>
+  </body>
+</html>
+
+
+
+
+

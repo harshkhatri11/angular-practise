@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ServiceService } from 'src/app/service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -34,7 +35,7 @@ export class SignupComponent implements OnInit {
 
   signUp() {
     this.http
-      .post<any>('http://localhost:3000/signupUsers', this.signupForm.value)
+      .post<any>(environment.JSON_SERVER_URL + '/signupUsers', this.signupForm.value)
       .subscribe({
         next: (res) => {
           this.serviceService.openSuccessSnackBar('Sign Up successfull', '');

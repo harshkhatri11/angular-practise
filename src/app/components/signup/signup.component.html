@@ -1,0 +1,57 @@
+
+  <!-- <form [formGroup]="signupForm">
+  <div class="mb-3">
+      <div fxFlex fxLayout="column" class="mt-3">
+          <div fxLayout="row wrap">
+              <mat-form-field appearance="outline" fxFlex>
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email" required>
+                  <mat-error
+                  *ngIf="signupForm.controls.email.touched && signupForm.controls.email.invalid">
+                  <span *ngIf="signupForm.controls.email.errors.required">This field is
+                      manadatory</span>
+                  <span *ngIf="signupForm.controls.email.errors.email">This email is not valid</span>
+              </mat-error>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline" fxFlex>
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" required>
+                  <mat-error
+                      *ngIf="signupForm.controls.password.touched && signupForm.controls.password.invalid">
+                      <span *ngIf="signupForm.controls.password.errors.required">This field is
+                          manadatory</span>
+                  </mat-error>
+              </mat-form-field>
+          </div>
+      </div>
+  </div>
+  <button mat-raised-button color="primary" type="submit" (click)="signup()">Login</button>
+</form>
+<a routerLink="/login">Already registered? Click on Login !!</a> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup Page</title>
+</head>
+<body>
+  <div class="signup-page">
+    <!-- <div class="avatar">
+      <img src="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_960_720.png" alt="Avatar">
+    </div> -->
+    <div class="form">
+      <h2>Signup</h2>
+      <form [formGroup]="signupForm">
+        <input type="text" placeholder="Email" required formControlName="email">
+        <input type="password" placeholder="Password" required formControlName="password">
+        <button (click)="signup()" [disabled]="!(signupForm.valid && signupForm.dirty)" mat-raised-button color="primary">Signup</button>
+      </form>
+      <p class="message">Already registered ? <a routerLink="/login">Click on Login !!</a></p>
+      <!-- <p class="message">Forgot your password? <a href="#">Click here to reset it</a></p> -->
+    </div>
+  </div>
+</body>
+</html>
+
+

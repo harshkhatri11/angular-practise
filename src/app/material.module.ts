@@ -13,7 +13,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSortModule } from '@angular/material/sort';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MatNativeDateModule, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatChipsModule } from '@angular/material/chips';
@@ -24,7 +24,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatRadioModule } from '@angular/material/radio';
+import { MatRadioModule, MAT_RADIO_DEFAULT_OPTIONS } from '@angular/material/radio';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
@@ -42,7 +42,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
   imports: [
     MatSelectModule,
     MatButtonModule,
-    // MatToolbarModule,
+    MatToolbarModule,
     MatIconModule,
     MatCardModule,
     // MatGridListModule,
@@ -88,7 +88,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
   exports: [
     MatSelectModule,
     MatButtonModule,
-    // MatToolbarModule,
+    MatToolbarModule,
     MatIconModule,
     MatCardModule,
     // MatGridListModule,
@@ -131,6 +131,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ReactiveFormsModule,
     DragDropModule,
   ],
+  providers: [{
+    provide: MAT_RADIO_DEFAULT_OPTIONS,useValue: { color: 'primary' }},{provide: MAT_DATE_LOCALE, useValue: 'en-GB'}]
 })
 export class MateriaModule {
   static forRoot(): ModuleWithProviders<any> {

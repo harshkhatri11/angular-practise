@@ -34,7 +34,7 @@ export class CrudComponent implements OnInit {
     public dialog: MatDialog,
     private jsonservice: JsonServerComponentService,
     private serviceService: ServiceService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.getAllProducts();

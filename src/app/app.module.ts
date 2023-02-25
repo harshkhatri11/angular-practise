@@ -44,6 +44,11 @@ import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.co
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AuthGuardGuard } from './auth-guard.guard';
+import { ConfirmationComponent } from './material component/dialog/confirmation/confirmation.component';
+import { EmployeeComponent } from './material component/dialog/employee/employee.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+
 
 // AoT requires an exported function for factories
 
@@ -60,6 +65,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     HeaderComponent,
     LoaderComponent,
     FooterComponent,
+    ConfirmationComponent,
+    EmployeeComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

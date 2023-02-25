@@ -1,0 +1,139 @@
+.employee-title {
+  margin-bottom: 10px;
+}
+
+.employees-card-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 10px;
+  grid: auto/auto auto auto;
+}
+
+.employee-card {
+  // width: 365px;
+  width: 100%;
+  //margin-bottom: 12px;
+}
+
+.user-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.employment_type {
+  font-style: italic;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  margin: 0 5px;
+}
+
+.edit-button {
+  margin-left: 8px;
+  color: #3f51b5;
+
+  mat-icon {
+      cursor: pointer;
+      font-size: 15px;
+  }
+}
+
+.delete-button {
+  color: #F44336;
+
+  mat-icon {
+      cursor: pointer;
+      font-size: 18px;
+  }
+}
+
+.user-image {
+  border-radius: 50%;
+}
+
+.employee-email {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-card-details {
+  >div {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 8px;
+
+      mat-icon {
+          color: #3f51b5;
+          margin-right: 10px;
+          font-size: 22px;
+      }
+  }
+}
+
+.mat-card-title {
+  margin-bottom: 0px !important;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+////////////////////////////////////
+
+.search-input{
+  display: block;
+  width: 199px;
+  border: 1px solid #701483;
+  border-radius: 24px;
+  height: 2rem;
+  padding: 0 10px;
+  margin-right: 15px;
+  font-size: 14px;
+
+  &::placeholder{
+      font-size: 14px;
+      font-style: italic;
+  }
+}
+
+.search-input-mobile{
+  display: none;
+}
+///////////////////////////////////
+
+.mat-card-title{
+  font-size: 18px;
+}
+
+@media screen and (max-width: 414px) {
+
+  .employee-title {
+      margin-bottom: 20px;
+  }
+
+  .employee-card {
+      margin-bottom: 10px;
+  }
+
+  .employees-card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+  }
+  .search-input{
+      display: none;
+  }
+  .mat-card-title{
+      font-size: 14px;
+  }
+  .search-input-mobile{
+      display: block;
+  }
+}
+

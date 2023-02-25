@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuardGuard } from './auth-guard.guard';
+import { LoginComponent } from './components/login/login.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const routes: Routes = [
   //Lazy loading test-components
@@ -31,8 +33,11 @@ const routes: Routes = [
       ),
   },
 
+  {path:'signup',component:SignupComponent},
+  {path:'login',component:LoginComponent},
+
   // when your path is empty then if you want to redirect or load any component
-  { path: '', redirectTo: 'test/form-test', pathMatch: 'full' },
+  { path: '', redirectTo: 'applications/ems', pathMatch: 'full' },
 
   //Wild Card Route for 404 request
   {

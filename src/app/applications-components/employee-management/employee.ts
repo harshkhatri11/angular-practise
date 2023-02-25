@@ -1,0 +1,21 @@
+export interface Employee {
+  id: string,
+  firstName: string,
+  lastName: string,
+  sex: string,
+  avatar: string,
+  birthday: string,
+  email: string,
+  country: string,
+  joining_date: string,
+  phone: string,
+  address: string,
+  address_2: string,
+  state: string,
+  zip_code: string,
+  city: string,
+  job_title: string,
+  employment_type: string,
+  employment_status: string,
+  employment_id: number
+}

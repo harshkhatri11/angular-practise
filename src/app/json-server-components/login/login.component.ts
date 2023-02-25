@@ -8,6 +8,7 @@ import {
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ServiceService } from 'src/app/service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.http.get<any>('http://localhost:3000/signupUsers').subscribe({
+    this.http.get<any>( environment.JSON_SERVER_URL + '/signupUsers').subscribe({
       next: (res) => {
         const user = res.find((a: any) => {
           return (
